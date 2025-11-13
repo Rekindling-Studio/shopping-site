@@ -1,0 +1,56 @@
+/* Basic Setup */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+header h1 {
+    color: #333;
+    margin-bottom: 40px;
+}
+
+/* 1. CSS GRID LAYOUT */
+.gallery-container {
+    display: grid;
+    /* Defines a strict 3-column, 3-row layout (3x3) */
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 15px; /* Space between the items */
+    max-width: 900px; /* Constrain the gallery size */
+    margin: 0 auto;
+}
+
+/* 2. ITEM STYLING AND TRANSITION SETUP */
+.product-item {
+    background-color: #fff;
+    border-radius: 6px;
+    overflow: hidden; /* Important: keeps the zoomed image within the border */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    
+    /* Sets up the Transition: Make all changes smooth over 0.3 seconds */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
+}
+
+/* Image inside the item */
+.product-item img {
+    width: 100%;
+    height: 100%; /* Ensure images fill the item box */
+    object-fit: cover; /* Ensures images cover the area without distortion */
+    display: block;
+}
+
+
+/* 3. HOVER EFFECT (ZOOM) */
+.product-item:hover {
+    /* Zoom effect using transform: scale() */
+    transform: scale(1.05); 
+    
+    /* Optional: Stronger shadow to make it look like it's lifting */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); 
+    
+    /* Ensures the lifted item appears above its neighbors */
+    z-index: 10;
+}

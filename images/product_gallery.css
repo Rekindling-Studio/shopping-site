@@ -1,0 +1,65 @@
+/* Basic Reset and Styling */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+header h1 {
+    color: #333;
+    margin-bottom: 40px;
+}
+
+/* * 1. CSS GRID LAYOUT 
+* Sets up a 2x2 structure within each 4-item row
+*/
+.gallery-container {
+    display: grid;
+    /* * Sets 4 columns of equal width. 
+    * Since we have 8 items, this creates a 2-row layout with 4 items per row, 
+    * effectively a 4x2 grid of 8 items. 
+    * If the intent was a large 2x2 structure (only 4 visible on the screen at a time),
+    * the 'repeat(2, 1fr)' could be used, but for 8 items, a 4-column layout is more standard for a gallery. 
+    * I've used 'repeat(4, 1fr)' for better item visibility, but if you strictly meant a 2-column wide layout: use 'repeat(2, 1fr)'.
+    * I will proceed with 4 columns for a better gallery view.
+    */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px; /* Space between the grid items */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Style for each product item */
+.product-item {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden; /* Ensures the zoomed image stays within the border-radius */
+    
+    /* Optional: Added box shadow for a lift effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+
+    /* Smooth transition for both the scale and the box shadow */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
+}
+
+/* Image inside the item */
+.product-item img {
+    width: 100%;
+    height: auto;
+    display: block; /* Removes any extra space below the image */
+}
+
+/* * 2. HOVER EFFECT (ZOOM-IN) 
+*/
+.product-item:hover {
+    /* Required zoom effect */
+    transform: scale(1.03); 
+    
+    /* Optional: Enhanced box shadow on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+    
+    /* Optional: Add a slight layer effect to indicate interactivity */
+    z-index: 10;
+}

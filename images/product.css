@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #f4f4f4;
+}
+h1 {
+    text-align: center;
+    color: brown;
+    margin-bottom: 20px;
+}
+.gallery {
+    display: grid;
+    grid-template-columns: repeat( 3, 1fr);
+    gap: 15px;
+}
+.photo {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.1);
+
+}
+.photo:hover {
+    transform: scale(1.05);
+}

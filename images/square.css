@@ -1,0 +1,43 @@
+/* Basic centering for presentation */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+/* Style the Square element */
+.square {
+    width: 100px;
+    height: 100px;
+    background-color: #007bff; /* A nice visible color */
+    border-radius: 10px;
+    
+    /* 1. APPLY THE ANIMATION */
+    animation-name: rotate360; /* Links to the @keyframes rule below */
+    animation-duration: 2s;    /* Takes 2 seconds to complete one rotation */
+    animation-timing-function: linear; /* Constant speed (no acceleration/deceleration) */
+    animation-iteration-count: infinite; /* Keeps running forever */
+}
+
+/* 2. DEFINE THE KEYFRAMES */
+@keyframes rotate360 {
+    /* Start state: 0% of the animation duration */
+    from {
+        /* Start with zero rotation */
+        transform: rotate(0deg); 
+    }
+    
+    /* End state: 100% of the animation duration */
+    to {
+        /* End with a full 360-degree rotation */
+        transform: rotate(360deg);
+    }
+}
+
+/* Optional: Add a shadow to make the 3D rotation more visible */
+.square:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
